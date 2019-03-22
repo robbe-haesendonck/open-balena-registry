@@ -1,4 +1,4 @@
-FROM balena/open-balena-base:v5.0.1
+FROM balena/open-balena-base:armv7-fin
 
 EXPOSE 80
 
@@ -7,14 +7,15 @@ RUN apt-get update \
 		musl \
 	&& rm -rf /var/lib/apt/lists/*
 
-# registry 2.6.2
-ENV REGISTRY_VERSION bc5d4f15a7e8d12ed6e5174ac4edab4b6032d09f
-ENV REGISTRY_SHA256 84b718193f07885b39a73be34994d50a6259f62abfca6dbd2ced279fefcc24e5
+ENV REGISTRY_VERSION v2.6.2
+ENV REGISTRY_DIR $GOPATH/src/github.com/docker/distribution
 
-RUN URL="https://github.com/docker/distribution-library-image/blob/${REGISTRY_VERSION}/registry/registry?raw=true" \
-	&& wget -qO /usr/local/bin/docker-registry "$URL" \
-	&& chmod a+x /usr/local/bin/docker-registry \
-	&& echo "${REGISTRY_SHA256}" /usr/local/bin/docker-registry | sha256sum -c -
+RUN mkdir -p $REGISTRY_DIR \
+	&& curl -sSL https://github.com/docker/distribution/archive/$REGISTRY_VERSION.tar.gz | tar -xz -C $REGISTRY_DIR --strip-components=1 \
+	&& cd $REGISTRY_DIR/cmd/registry \
+	&& CGO_ENABLED=1 go build \
+	&& cp registry /usr/local/bin/docker-registry \
+	&& chmod a+x /usr/local/bin/docker-registry
 
 COPY config/services/resin-registry.service /etc/systemd/system/
 
