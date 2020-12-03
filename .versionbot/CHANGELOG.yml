@@ -1,4 +1,39 @@
 - commits:
+    - subject: Introduce BALENA_REGISTR2_DEBUG to switch to debug logging
+      hash: 3f541c80310b923ee0876c09dd6f9e1ac6611bcf
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Robert Günzler <robertg@balena.io>
+        signed-off-by: Robert Günzler <robertg@balena.io>
+      author: Robert Günzler
+      nested: []
+    - subject: Use no-systemd base-image variant
+      hash: f306f9252b3997775b6d164211143b4fe73780fe
+      body: ''
+      footer:
+        Depends-on: 'https://github.com/balena-io/open-balena-base/pull/122'
+        depends-on: 'https://github.com/balena-io/open-balena-base/pull/122'
+        Change-type: major
+        change-type: major
+        Signed-off-by: Robert Günzler <robertg@balena.io>
+        signed-off-by: Robert Günzler <robertg@balena.io>
+      author: Robert Günzler
+      nested: []
+    - subject: Remove redis
+      hash: 70e8da57e65a0bdd6c0d8dc1f4e7d7ddd9c49983
+      body: ''
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Robert Günzler <robertg@balena.io>
+        signed-off-by: Robert Günzler <robertg@balena.io>
+      author: Robert Günzler
+      nested: []
+  version: 3.0.0
+  date: 2020-12-03T14:51:17.850Z
+- commits:
     - subject: Update open-balena-base to 11.0.2
       hash: d6a095deb7721e785622c5a173285a47f2c13a65
       body: |
