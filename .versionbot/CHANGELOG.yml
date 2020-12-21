@@ -1,4 +1,17 @@
 - commits:
+    - subject: Configure log level via env var
+      hash: 545f4c2eb27c8df341ba60fe20720e2f7eca2fef
+      body: ''
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Tomás Tormo <tomast@balena.io>
+        signed-off-by: Tomás Tormo <tomast@balena.io>
+      author: Tomás Tormo
+      nested: []
+  version: 2.15.0
+  date: 2020-12-21T16:09:09.434Z
+- commits:
     - subject: Update open-balena-base to 11.0.2
       hash: d6a095deb7721e785622c5a173285a47f2c13a65
       body: |
